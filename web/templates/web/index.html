@@ -1,0 +1,290 @@
+{% extends 'main.html' %}
+{%load static%}
+{% block content %}
+ <div>
+<p><b>{{index.host}} {{index.name}}</b></p>
+<br>
+</div>
+</div>
+      <table class="table table-borderless">
+        <thead>
+         
+         
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><b><h4>HOME BIBLE CHURCH<b><h4></th>
+            <td><h4>{{index.choice}}<h4></td>
+            
+          </tr>
+          <tr>
+            <th scope="row"><b><h4>PHONE NUMBER<b><h4></th>
+            <td><h4>{{index.phone}}<h4></td>
+          </tr>
+          <tr>
+            <th scope="row"><b><h4>ID NUMBER<b><h4></th>
+            <td colspan="2"><h4>{{index.identity}}<h4></td>
+          </tr>
+          <tr>
+            <th scope="row"><b><h4>DEPENDANTS<b><h4></th>
+            <td><h4><h1>Parent:</h1>{{index.Parent}}<br><b>Child:</b> {{index.Child}} <br> <b>Spouse:</b>{{index.Spouse}}<h4></td>
+            
+          </tr>
+        </tbody>
+      </table>
+
+      <p><b>Contributions</b></p>
+<br> 
+
+    </div>
+    
+      <div class="card">
+        <div class="card-body">
+        <table id="example" class="table table-bordered table-hover" style="width:95%">
+          <thead>
+            <tr class="bg-primary">
+                 
+                  <th class="bg-info">Date</th>
+                  <th class="bg-info">Code</th>
+                  <th class="bg-info">Month</th>
+                  <th class="bg-info">contribution</th>
+                  
+              </tr>
+          </thead>
+          <tbody>
+           
+            {%for update in payment%}
+            {% if request.user == update.owner|slice:':12'%}
+              <tr class="table-warning">
+                  <td>{{update.updated| date}}</td>
+                  <td>{{update.code}}</td>
+                  <td>{{update.choice}}</td>
+                  <td>{{update.amount}}</td> 
+                   
+               
+                  
+              </tr>
+              {%endif%}
+              {%endfor%}
+              
+             
+              
+          <tfoot>
+           
+          </tfoot>
+      </table>
+    
+      </div>
+    </div>
+    
+  
+    </div>
+    </div>
+    
+<a class="btn btn--primary" href="{% url 'password_change'%}">change password</a>
+
+      <br>
+
+         
+        
+      
+        <p>Talk to our Back team</p>
+        <hr><br>
+<!--<div class="container" style="background-color: #66b2b2; padding: 8px; border-radius: 3px;" >
+ <form method="post" action="">
+    {%csrf_token%}
+    <input type="text" name="body" placeholder="Leave a Message" style="border: 6px;width:  100%; text-align: right; background-color: #C0C0C0; padding: 15px;">
+    </form>
+    </div>
+  
+        <br>
+          {% for message in R_messages|slice:':3'%}
+         
+<div class="container" style="background-color: #66b2b2; padding: 8px; border-radius: 3px;"  >
+  <hr style="background-color: #8d0B41; height: 4%;">
+  
+  
+    
+    <small style="color: #8d0B41;;">{{message.user}}<br></small><br><br>
+  <p > <b>{{message.body}}</b></p>
+  <small><p><b>Posted:</b> <i>{{message.updated|timesince}} ago</i></p></small>
+  
+ 
+
+  <tr>
+ 
+</div>
+{%endfor%}
+{% for Msg in adm%}
+ {% if request.user == Msg.sender %}
+<div class="container" style="background-color: #255f5f; padding: 8px; border-radius: 3px;"  >
+  <hr style="background-color: #8d0B41; height: 4%;">
+  <p>Posted by ADMIN</p>
+  <p>{{Msg.body}}</p>
+  <small><p><b>Posted:</b> <i>{{Msg.updated|timesince}} ago</i></p></small>
+</div>
+{%endif%}
+{%endfor%}
+
+-->
+  <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #051634;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  margin: auto;
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+  
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #051634;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<div class="form-container" style="align-items: center;">
+<h2>Message From GCIWELFARE</h2>
+<hr>
+{% for Msg in adm|slice:':2'%}
+{% if request.user == Msg.sender %}
+<p><p>{{Msg.body}}</p></p>
+<small><p style="font-size: x-small; color: royalblue;"><i>{{Msg.updated|timesince}} ago</i></p></small>
+<hr>
+{%endif%}
+{%endfor%}
+</div>
+
+
+<button class="open-button" onclick="openForm()">Chats</button>
+<div class="chat-popup" id="myForm">
+  <form method="post"  action=""  class="form-container">
+    {% csrf_token %}
+    <h1>Chat With Back Team</h1>
+
+    <label for="msg"><b>Message</b></label>
+    <textarea placeholder="Type message.." name="body" required></textarea>
+    <hr>
+    {% for message in R_messages|slice:':1'%}
+    <hr>
+<p > <b>{{message.body}}</b></p>
+ <small><p style="font-size: x-small; color: royalblue;"><i>{{message.updated|timesince}} ago</i></p></small>
+  <hr>
+  {%endfor%}
+  
+
+    <button type="submit" class="btn">Send</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+          <style>
+
+
+
+          table card-body{
+            font-family: arial, sans-serif;
+            font-size: medium;
+            font:300;
+            border-collapse: collapse;
+            width: 100%;
+          }
+          
+          td, th {
+            border: 1px solid #051634;
+            text-align: left;
+            color: #1e1e1f;
+            padding: 8px;
+            background-color: #C0C0C0;
+          }
+          
+          tr:nth-child(even) {
+            background-color: #C0C0C0;
+          }
+          p{
+            font-size: medium;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            color: #051634;
+            padding: 1%;
+          }
+          
+          </style>
+          <br> <br>
+          
+             
+                 
+                </div>
+                
+          {%endblock%}
