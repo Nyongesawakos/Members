@@ -18,7 +18,7 @@ SECRET_KEY = 'django-insecure-f_d6j(*!po2e2few@*tv@7gvl7(+%6bi-3sh(qw%=b093d52s8
 DEBUG =True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://552aa6342cc7.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://gciwelfare.info']
 
 
 
@@ -133,5 +133,6 @@ MEDIA_URL='/media/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
