@@ -3,15 +3,16 @@
 :root {
   --color-main: #344CB7;
   --color-main-light: #577BC1;
-  --color-dark: #1527c5;
-  --color-dark-medium: #8D77AB;
-  --color-dark-light: #696d97;
-  --color-light: #e5e5e5;
-  --color-gray: #8d0B41;
+  --color-dark: #D7D8DA;
+  --color-dark-medium: #00008B;
+  --color-dark-light: #00008B;
+  --color-light: #8f0102;
+  --color-gray: #ffbf00;
   --color-light-gray: #D39D55;
-  --color-bg: #474E93;
-  --color-success: #dbe9d2;
-  --color-error: #fc4b0b;
+  --color-bg: #051634;
+  --color-success: #e5e5e5;
+  --color-error: #C0C0C0;
+  --color-black:#000000;
 }
 
 /*========== base styles ==========*/
