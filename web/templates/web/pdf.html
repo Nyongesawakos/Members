@@ -25,8 +25,8 @@
                       <th class="bg-info">Full Name</th>
                       <th class="bg-info">Category</th>
                       <th class="bg-info">Email address</th>
-                        <th class="bg-info">code</th>
                         <th class="bg-info">Month</th>
+                        <th class="bg-info">Year</th>
                         <th class="bg-info">Amount</th>  
                         
                         
@@ -42,7 +42,7 @@
                     <td> {{ update.owner.name}}{{ update.room.lastName}} {{ update.room.name}}</td>
                     <td>{{ update.room.topic}}</td>
                     <td>{{ update.owner.email}}</td>
-                    <td>{{ update.code }}</td>
+                    <td>{{ update.choose }}</td>
                     <td>{{ update.choice }}</td>
                     <td>{{ update.amount }}</td>
                     
@@ -104,4 +104,5 @@
                     window.print();
                 }
             </script>
+
                {% endblock %}
