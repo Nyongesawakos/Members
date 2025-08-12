@@ -212,8 +212,8 @@
                                   <th class="bg-info">Date Updated</th>
                                   <th class="bg-info">UserName</th>
                                   <th class="bg-info">Email address</th>
-                                    <th class="bg-info">code</th>
                                     <th class="bg-info">Month</th>
+                                    <th class="bg-info">Year</th>
                                     <th class="bg-info">Amount</th>  
                                     
                                     
@@ -226,7 +226,7 @@
                                 <td>{{update.created|date}} </td>
                                 <td>{{ update.owner}} </td>
                                 <td>{{ update.owner.email}}</td>
-                                <td>{{ update.code }}</td>
+                                <td>{{ update.choose }}</td>
                                 <td>{{ update.choice }}</td>
                                 <td>{{ update.amount }}</td>
                                 
@@ -292,3 +292,4 @@
     <script src="{% static 'style/index.js' %}"></script>
 </body>
 {% endblock %}
+
