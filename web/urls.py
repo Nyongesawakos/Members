@@ -31,5 +31,7 @@ path('password/change/done/', TemplateView.as_view(template_name='web/password_c
 path('home/', views.home, name='home'),
 path('about/', views.about, name='about'),
 path('activities/', views.activities, name='activities'),
+  path('deleteRecord/<str:pk>/', views.deleteRecord, name='deleteRecord'),
+
 
 ]
