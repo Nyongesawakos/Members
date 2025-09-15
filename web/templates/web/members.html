@@ -1,0 +1,121 @@
+
+{%load static%}
+{% block content %}
+
+<title>GCIWELFARE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<button onclick="myfunc('mn')" class="btn btn--main" style="float: right; margin-top:30px; background-color: #007bff; color: white;">
+  Download pdf
+</button>
+<div class="div" id="mn">
+<div class="image">
+    <img src="{% static 'images/logo.png'%}" />
+    </div>
+
+    <div class="report-container">
+        <div class="report-header">
+            <h1 class="recent-Articles">Member List</h1> 
+           
+        </div>
+        <a href="{% url 'user_list' %}"></a>
+        <table id="example" class="table table-striped table-hover" style="width:95%">
+    <thead>
+      <tr class="bg-primary">
+          <th class="bg-info">Username</th>
+          <th class="bg-info">First name</th>
+          <th class="bg-info">Other Names</th>
+          <th class="bg-info">Last name</th>
+           <th class="bg-info">Category</th>
+          <th class="bg-info">HBC</th>
+          
+         
+            
+            
+            
+        </tr>
+    </thead>
+  
+<tbody>
+    {% for room in member %}  
+    <tr class="table-warning">
+    
+        
+       
+        
+       
+        
+        <td>{{room.host}}</td>
+        <td>{{room.Firstname}}</td>
+        <td>{{room.lastName}}</td>
+        <td>{{room.name}}</td>
+        <td>{{room.topic}}</td>
+        <td>{{room.choice}}</td>
+        {%endfor%}
+       
+  
+  
+    <style>
+
+        
+        table card-body{
+          font-family: arial, sans-serif;
+          font-size: medium;
+          font:300;
+          border-collapse: collapse;
+          width: 100%;
+          overflow-x: auto;
+        }
+        
+        td, th {
+          border: 1px solid #C0C0C0;
+          text-align: left;
+          padding: 8px;
+          background-color: #d3d8e0;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #C0C0C0;
+        }
+        img{
+                        align-items: center;
+                        width: 100;
+                      
+                    }
+        a{
+            display: inline-block;
+            text-decoration: none;
+            }
+            table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px; /* force scroll on small screens */
+}
+@media (max-width: 600px) {
+  table {
+    width: auto;
+  }
+}
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact; /* Safari/Chrome */
+      print-color-adjust: exact;         /* Modern browsers */
+    }
+  }
+</style>
+            
+       
+       </table>
+       </div>
+       </div>
+       
+<script type="text/javascript">
+    function myfunc(pa){
+        var b=document.body.innerHTML;
+        var d=document.getElementById(pa).innerHTML;
+        document.body.innerHTML=d;
+        window.print();
+    }
+</script>
+       
+       {%endblock%}
